@@ -206,24 +206,30 @@ public class Display extends javax.swing.JFrame {
 
         switch (option) {
             case 1:
-                //mostrarSaldo();
+                //this.mostrarSaldo();
                 break;
             case 2:
-                //ejecutarRetiro();
+                //this.ejecutarRetiro();
                 break;
             case 3:
-                //ejecutarDeposito();
+                //this.ejecutarDeposito();
                 break;
             case 4:
-                //volverLogin();
+                this.volverLogin();
                 break;
             default:
                 modalOption.setText("Ingrese opcion valida");
                 modalOption.setVisible(true);
                 modalOption.setEnabled(true);
-
         }
     }//GEN-LAST:event_btnOptionActionPerformed
+
+    public void volverLogin() {
+        Login login = new Login();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
+        this.dispose();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOperation;
