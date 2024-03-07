@@ -338,7 +338,7 @@ public class Login extends javax.swing.JFrame {
 
             for (Persona usuario : listaUsuarios) {
                 if (usuario.getNombre().equals(username) && usuario.verificarPassword(password)) {
-                    Display display = new Display();
+                    Display display = new Display(usuario);
                     display.setVisible(true);
 
                     //cierra ventana Login
