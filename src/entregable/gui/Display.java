@@ -64,8 +64,6 @@ public class Display extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(listOptions);
 
-        fieldOption.setText("1");
-
         modalOption.setForeground(new java.awt.Color(255, 0, 0));
         modalOption.setText("Ingrese opcion valida");
 
@@ -203,10 +201,11 @@ public class Display extends javax.swing.JFrame {
         // TODO add your handling code here:
         String optionText = fieldOption.getText();
         int option = Integer.parseInt(optionText);
+        fieldOption.setText("");
 
         switch (option) {
             case 1:
-                //this.mostrarSaldo();
+                this.mostrarSaldo();
                 break;
             case 2:
                 //this.ejecutarRetiro();
@@ -223,6 +222,13 @@ public class Display extends javax.swing.JFrame {
                 modalOption.setEnabled(true);
         }
     }//GEN-LAST:event_btnOptionActionPerformed
+
+    public void mostrarSaldo() {
+        double saldoInt = usuario.getSaldo();
+        String saldo = String.valueOf(saldoInt);
+
+        lbSaldo.setText("$ " + saldo);
+    }
 
     public void volverLogin() {
         Login login = new Login();
