@@ -270,12 +270,13 @@ public class Display extends javax.swing.JFrame {
 
         if (this.usuario.retiro(ammount)) {
             modalOperation.setText("Retiro exitoso");
+            modalOperation.setForeground(new Color(0, 255, 0));
             modalOperation.setVisible(true);
             modalOperation.setEnabled(true);
             this.mostrarSaldo();
         } else {
             modalOperation.setText("El retiro falló");
-            modalOperation.setForeground(new Color(0, 255, 0));
+            modalOperation.setForeground(new Color(255, 0, 0));
             modalOperation.setVisible(true);
             modalOperation.setEnabled(true);
         }
@@ -288,11 +289,13 @@ public class Display extends javax.swing.JFrame {
 
         if (this.usuario.deposito(ammount)) {
             modalOperation.setText("Deposito exitoso");
+            modalOperation.setForeground(new Color(0, 255, 0));
             modalOperation.setVisible(true);
             modalOperation.setEnabled(true);
             this.mostrarSaldo();
         } else {
             modalOperation.setText("El deposito fallo");
+            modalOperation.setForeground(new Color(255, 0, 0));
             modalOperation.setVisible(true);
             modalOperation.setEnabled(true);
         }

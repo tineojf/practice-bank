@@ -73,11 +73,11 @@ public class Login extends javax.swing.JFrame {
         lbPasswordRegister = new javax.swing.JLabel();
         fieldPasswordRegister = new javax.swing.JPasswordField();
         lbApellidoP = new javax.swing.JLabel();
-        fieldApellidoP = new javax.swing.JPasswordField();
-        fieldApellidoM = new javax.swing.JPasswordField();
         modalRegister = new javax.swing.JLabel();
         lbApellidoM = new javax.swing.JLabel();
         btnSignUp = new javax.swing.JButton();
+        fieldApellidoP = new javax.swing.JTextField();
+        fieldApellidoM = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,10 +143,6 @@ public class Login extends javax.swing.JFrame {
 
         lbApellidoP.setText("Apellido Paterno");
 
-        fieldApellidoP.setToolTipText("Apellido");
-
-        fieldApellidoM.setToolTipText("Apellido");
-
         modalRegister.setForeground(new java.awt.Color(255, 0, 0));
         modalRegister.setText("Ingresa un valor correcto");
         modalRegister.setEnabled(false);
@@ -162,12 +158,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        fieldApellidoP.setToolTipText("Apellido");
+
+        fieldApellidoM.setToolTipText("Apellido");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(172, 172, 172)
@@ -191,6 +191,11 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSignUp)
+                            .addComponent(modalRegister)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,21 +204,16 @@ public class Login extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(22, 22, 22)
                                     .addComponent(btnRegistroTitle)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lbApellidoM)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lbApellidoP)
-                                        .addComponent(fieldApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(fieldApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lbApellidoP)
+                                    .addGap(104, 104, 104))
                                 .addComponent(lbPasswordRegister)
-                                .addComponent(fieldPasswordRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSignUp)
-                            .addComponent(modalRegister))))
-                .addGap(189, 189, 189))
+                                .addComponent(fieldPasswordRegister)
+                                .addComponent(fieldApellidoP)
+                                .addComponent(fieldApellidoM)))))
+                .addGap(168, 168, 168))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -237,19 +237,19 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addComponent(btnRegistroTitle)
-                        .addGap(50, 50, 50)
+                        .addGap(44, 44, 44)
                         .addComponent(lbUserRegister)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fieldUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
                         .addComponent(lbApellidoP)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addComponent(fieldApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbApellidoM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(fieldApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbPasswordRegister)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fieldPasswordRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -388,7 +388,7 @@ public class Login extends javax.swing.JFrame {
             fieldPasswordRegister.setText("");
 
             modalRegister.setText("Usuario registrado exitosamente");
-            modalRegister.setForeground(new Color(255, 0, 0));
+            modalRegister.setForeground(new Color(0, 255, 0));
             modalRegister.setVisible(true);
             modalRegister.setEnabled(true);
 
@@ -405,8 +405,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnLoginTitle;
     private javax.swing.JButton btnRegistroTitle;
     private javax.swing.JButton btnSignUp;
-    private javax.swing.JPasswordField fieldApellidoM;
-    private javax.swing.JPasswordField fieldApellidoP;
+    private javax.swing.JTextField fieldApellidoM;
+    private javax.swing.JTextField fieldApellidoP;
     private javax.swing.JPasswordField fieldPassword;
     private javax.swing.JPasswordField fieldPasswordRegister;
     private javax.swing.JTextField fieldUser;

@@ -9,5 +9,4 @@ public class Entregable {
         inicio.setVisible(true);
         inicio.setLocationRelativeTo(null);
     }
-
 }
