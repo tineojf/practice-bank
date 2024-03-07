@@ -1,6 +1,7 @@
 package entregable.gui;
 
 import entregable.logic.Persona;
+import java.awt.Color;
 
 /**
  *
@@ -238,7 +239,13 @@ public class Display extends javax.swing.JFrame {
 
     private void btnOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperationActionPerformed
         // TODO add your handling code here:
+        String nameOperation = lbOperacion.getText();
 
+        if (nameOperation.equals("RETIRO")) {
+            this.ejecutarRetiro();
+        } else {
+            this.ejecutarDeposito();
+        }
     }//GEN-LAST:event_btnOperationActionPerformed
 
     public void mostrarSaldo() {
@@ -265,8 +272,27 @@ public class Display extends javax.swing.JFrame {
             modalOperation.setText("Retiro exitoso");
             modalOperation.setVisible(true);
             modalOperation.setEnabled(true);
+            this.mostrarSaldo();
         } else {
             modalOperation.setText("El retiro falló");
+            modalOperation.setForeground(new Color(0, 255, 0));
+            modalOperation.setVisible(true);
+            modalOperation.setEnabled(true);
+        }
+    }
+
+    public void ejecutarDeposito() {
+        String ammountTxt = fieldOperation.getText();
+        double ammount = Double.parseDouble(ammountTxt);
+        fieldOperation.setText("");
+
+        if (this.usuario.deposito(ammount)) {
+            modalOperation.setText("Deposito exitoso");
+            modalOperation.setVisible(true);
+            modalOperation.setEnabled(true);
+            this.mostrarSaldo();
+        } else {
+            modalOperation.setText("El deposito fallo");
             modalOperation.setVisible(true);
             modalOperation.setEnabled(true);
         }

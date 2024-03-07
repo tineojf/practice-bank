@@ -61,9 +61,12 @@ public class Persona {
         }
     }
 
-    public void deposito(double cantidad) {
+    public boolean deposito(double cantidad) {
         if (cantidad > 0) {
             saldo += cantidad;
+            return true;
+        } else {
+            return false;
         }
     }
 

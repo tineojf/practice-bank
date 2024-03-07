@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Login extends javax.swing.JFrame {
 
-    private int contadorLogin = 0;
+    private int contadorLogin = 3;
     private final ArrayList<Persona> listaUsuarios = new ArrayList();
 
     /**
@@ -347,13 +347,15 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     return;
                 } else {
-                    contadorLogin++;
-                    if (contadorLogin == 3) {
-                        modalLogin.setText("Limite intentos permitidos (" + contadorLogin + ")");
-                        modalLogin.setVisible(true);
-                        modalLogin.setEnabled(true);
+                    if (contadorLogin == 0) {
+                        modalLogin.setText("Limite intentos permitidos (3)");
                         bloquearBotones();
                         return;
+                    } else {
+                        contadorLogin--;
+                        modalLogin.setText("Te quedan " + contadorLogin + " intentos");
+                        modalLogin.setVisible(true);
+                        modalLogin.setEnabled(true);
                     }
                 }
             }
@@ -386,7 +388,7 @@ public class Login extends javax.swing.JFrame {
             fieldPasswordRegister.setText("");
 
             modalRegister.setText("Usuario registrado exitosamente");
-            modalRegister.setForeground(new Color(0, 255, 0));
+            modalRegister.setForeground(new Color(255, 0, 0));
             modalRegister.setVisible(true);
             modalRegister.setEnabled(true);
 
