@@ -21,6 +21,7 @@ public class Login extends javax.swing.JFrame {
 
         // Create admin user
         Persona admin = new Persona("admin", "tineo", "atunca", "admin");
+        admin.deposito(531324);
         this.listaUsuarios.add(admin);
 
         // Login visibility
