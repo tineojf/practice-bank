@@ -8,7 +8,6 @@ public class Entregable {
         Login inicio = new Login();
         inicio.setVisible(true);
         inicio.setLocationRelativeTo(null);
-
     }
 
 }
