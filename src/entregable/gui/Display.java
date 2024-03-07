@@ -22,9 +22,18 @@ public class Display extends javax.swing.JFrame {
 
         // Load data
         lbWelcome.setText("Bienvenido, " + this.usuario.getNombre().toUpperCase());
+
+        // modal hidden
         modalOption.setVisible(false);
         modalOption.setEnabled(false);
+        modalOperation.setVisible(false);
+        modalOperation.setEnabled(false);
 
+        // operation hidden
+        lbOperacion.setVisible(false);
+        fieldOperation.setVisible(false);
+        modalOperation.setVisible(false);
+        btnOperation.setVisible(false);
     }
 
     /**
@@ -88,10 +97,14 @@ public class Display extends javax.swing.JFrame {
 
         fieldOperation.setText("monto");
 
-        modalOperation.setForeground(new java.awt.Color(255, 0, 0));
         modalOperation.setText("Ingrese opcion valida");
 
         btnOperation.setText("Ejecutar operacion");
+        btnOperation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOperationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,22 +136,22 @@ public class Display extends javax.swing.JFrame {
                                         .addGap(213, 213, 213)
                                         .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(241, 241, 241)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(283, 283, 283)
-                                                .addComponent(lbOperacion))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(241, 241, 241)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(btnOperation)
-                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(modalOperation)
-                                                        .addGap(8, 8, 8)))))
+                                            .addComponent(btnOperation)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(modalOperation)
+                                                .addGap(8, 8, 8)))
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(71, 71, 71))))))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(71, 71, 71))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addComponent(lbOperacion)
+                                                .addGap(84, 84, 84))))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lbSaldoTitle)
@@ -171,9 +184,9 @@ public class Display extends javax.swing.JFrame {
                                 .addComponent(btnOption)
                                 .addGap(23, 23, 23))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
+                                .addGap(124, 124, 124)
                                 .addComponent(lbOperacion)
-                                .addGap(38, 38, 38)
+                                .addGap(30, 30, 30)
                                 .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(modalOperation)
@@ -208,10 +221,10 @@ public class Display extends javax.swing.JFrame {
                 this.mostrarSaldo();
                 break;
             case 2:
-                //this.ejecutarRetiro();
+                this.mostrarSeccionOperacion("Retiro");
                 break;
             case 3:
-                //this.ejecutarDeposito();
+                this.mostrarSeccionOperacion("Deposito");
                 break;
             case 4:
                 this.volverLogin();
@@ -223,11 +236,40 @@ public class Display extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnOptionActionPerformed
 
+    private void btnOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperationActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_btnOperationActionPerformed
+
     public void mostrarSaldo() {
         double saldoInt = usuario.getSaldo();
         String saldo = String.valueOf(saldoInt);
 
         lbSaldo.setText("$ " + saldo);
+    }
+
+    public void mostrarSeccionOperacion(String _nameOperation) {
+        lbOperacion.setText(_nameOperation.toUpperCase());
+        lbOperacion.setVisible(true);
+        fieldOperation.setVisible(true);
+        modalOperation.setVisible(true);
+        btnOperation.setVisible(true);
+    }
+
+    public void ejecutarRetiro() {
+        String ammountTxt = fieldOperation.getText();
+        double ammount = Double.parseDouble(ammountTxt);
+        fieldOperation.setText("");
+
+        if (this.usuario.retiro(ammount)) {
+            modalOperation.setText("Retiro exitoso");
+            modalOperation.setVisible(true);
+            modalOperation.setEnabled(true);
+        } else {
+            modalOperation.setText("El retiro falló");
+            modalOperation.setVisible(true);
+            modalOperation.setEnabled(true);
+        }
     }
 
     public void volverLogin() {
