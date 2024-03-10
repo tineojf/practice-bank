@@ -24,27 +24,7 @@ public class Login extends javax.swing.JFrame {
         admin.deposito(531324);
         this.listaUsuarios.add(admin);
 
-        // Login visibility
-        lbUser.setVisible(false);
-        lbPassword.setVisible(false);
-        modalLogin.setVisible(false);
-
-        fieldUser.setVisible(false);
-        fieldPassword.setVisible(false);
-        btnLogin.setVisible(false);
-
-        // Register visibility
-        lbUserRegister.setVisible(false);
-        lbApellidoP.setVisible(false);
-        lbApellidoM.setVisible(false);
-        lbPasswordRegister.setVisible(false);
-        modalRegister.setVisible(false);
-
-        fieldUserRegister.setVisible(false);
-        fieldApellidoP.setVisible(false);
-        fieldApellidoM.setVisible(false);
-        fieldPasswordRegister.setVisible(false);
-        btnSignUp.setVisible(false);
+        this.desactivarInputLabel();
     }
 
     /**
@@ -299,15 +279,15 @@ public class Login extends javax.swing.JFrame {
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
         // TODO add your handling code here:
         if (!fieldUserRegister.getText().isEmpty()
-            && !fieldApellidoP.getText().isEmpty()
-            && !fieldApellidoM.getText().isEmpty()
-            && !fieldPasswordRegister.getText().isEmpty()) {
+                && !fieldApellidoP.getText().isEmpty()
+                && !fieldApellidoM.getText().isEmpty()
+                && !fieldPasswordRegister.getText().isEmpty()) {
             // Ir a frame Display
             Persona nuevoUsuario = new Persona(
-                fieldUserRegister.getText(),
-                fieldApellidoP.getText(),
-                fieldApellidoM.getText(),
-                fieldPasswordRegister.getText()
+                    fieldUserRegister.getText(),
+                    fieldApellidoP.getText(),
+                    fieldApellidoM.getText(),
+                    fieldPasswordRegister.getText()
             );
 
             listaUsuarios.add(nuevoUsuario);
@@ -393,6 +373,31 @@ public class Login extends javax.swing.JFrame {
         fieldUser.setEnabled(false);
         fieldPassword.setEnabled(false);
     }
+
+    private void desactivarInputLabel() {
+        // Login visibility - false
+        lbUser.setVisible(false);
+        lbPassword.setVisible(false);
+        modalLogin.setVisible(false);
+
+        fieldUser.setVisible(false);
+        fieldPassword.setVisible(false);
+        btnLogin.setVisible(false);
+
+        // Register visibility - false
+        lbUserRegister.setVisible(false);
+        lbApellidoP.setVisible(false);
+        lbApellidoM.setVisible(false);
+        lbPasswordRegister.setVisible(false);
+        modalRegister.setVisible(false);
+
+        fieldUserRegister.setVisible(false);
+        fieldApellidoP.setVisible(false);
+        fieldApellidoM.setVisible(false);
+        fieldPasswordRegister.setVisible(false);
+        btnSignUp.setVisible(false);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLoginTitle;
