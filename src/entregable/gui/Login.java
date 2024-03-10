@@ -5,10 +5,6 @@ import entregable.logic.Tools;
 import java.awt.Color;
 import java.util.ArrayList;
 
-/**
- *
- * @author tineo
- */
 public class Login extends javax.swing.JFrame {
 
     private int contadorLogin = 3;

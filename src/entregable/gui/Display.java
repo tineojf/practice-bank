@@ -3,19 +3,10 @@ package entregable.gui;
 import entregable.logic.Persona;
 import java.awt.Color;
 
-/**
- *
- * @author tineo
- */
 public class Display extends javax.swing.JFrame {
 
     private final Persona usuario;
 
-    /**
-     * Creates new form Display
-     *
-     * @param _usuario
-     */
     public Display(Persona _usuario) {
         this.usuario = _usuario;
 
@@ -222,7 +213,7 @@ public class Display extends javax.swing.JFrame {
                 this.mostrarSeccionOperacion("Deposito");
                 break;
             case 4:
-                this.volverLogin();
+                this.terminarSesion();
                 break;
             default:
                 modalOption.setText("Ingrese opcion valida");
@@ -295,7 +286,7 @@ public class Display extends javax.swing.JFrame {
         }
     }
 
-    public void volverLogin() {
+    public void terminarSesion() {
         Login login = new Login();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
