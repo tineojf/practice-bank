@@ -3,6 +3,7 @@ package entregable.gui;
 import entregable.logic.Persona;
 import entregable.logic.Tools;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 public class Display extends javax.swing.JFrame {
 
@@ -32,7 +33,6 @@ public class Display extends javax.swing.JFrame {
         lbWelcome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listOptions = new javax.swing.JList<>();
-        fieldOption = new javax.swing.JTextField();
         modalOption = new javax.swing.JLabel();
         btnOption = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -65,7 +65,7 @@ public class Display extends javax.swing.JFrame {
         modalOption.setText("Ingrese opcion valida");
 
         btnOption.setBackground(new java.awt.Color(212, 255, 0));
-        btnOption.setText("Acceder");
+        btnOption.setText("Elegir operación");
         btnOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOptionActionPerformed(evt);
@@ -104,18 +104,14 @@ public class Display extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(modalOption)
-                                .addComponent(jScrollPane1)
-                                .addComponent(fieldOption, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(92, 92, 92)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(modalOption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)
+                            .addComponent(btnOption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(113, 113, 113)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(78, 78, 78)
@@ -164,11 +160,9 @@ public class Display extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(fieldOption, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
+                        .addGap(59, 59, 59)
                         .addComponent(modalOption)
-                        .addGap(29, 29, 29)
+                        .addGap(43, 43, 43)
                         .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
@@ -189,26 +183,7 @@ public class Display extends javax.swing.JFrame {
 
     private void btnOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOptionActionPerformed
         // TODO add your handling code here:
-        String optionText = fieldOption.getText();
-        int option = Integer.parseInt(optionText);
-        fieldOption.setText("");
-
-        switch (option) {
-            case 1:
-                this.mostrarSaldo();
-                break;
-            case 2:
-                this.mostrarSeccionOperacion("Retiro");
-                break;
-            case 3:
-                this.mostrarSeccionOperacion("Deposito");
-                break;
-            case 4:
-                this.terminarSesion();
-                break;
-            default:
-                Tools.activarModal(modalOption, "Ingrese opcion valida");
-        }
+        this.mostrarOperaciones();
     }//GEN-LAST:event_btnOptionActionPerformed
 
     private void btnOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperationActionPerformed
@@ -221,6 +196,39 @@ public class Display extends javax.swing.JFrame {
             this.ejecutarDeposito();
         }
     }//GEN-LAST:event_btnOperationActionPerformed
+
+    private void mostrarOperaciones() {
+        boolean salir = false;
+        do {
+            String opcion = JOptionPane.showInputDialog(null, "1. Consulta\n2. Retiro\n3.Deposito\n4. Salir");
+
+            switch (opcion) {
+                case "1":
+                    this.mostrarSaldo();
+                    salir = true;
+                    break;
+
+                case "2":
+                    this.mostrarSeccionOperacion("Retiro");
+                    salir = true;
+                    break;
+
+                case "3":
+                    this.mostrarSeccionOperacion("Deposito");
+                    salir = true;
+                    break;
+
+                case "4":
+                    System.out.println("Programa Terminado");
+                    this.terminarSesion();
+                    salir = true;
+                    break;
+
+                default:
+                    System.out.println("Ingrese opcion correcta");
+            }
+        } while (!salir);
+    }
 
     private void mostrarSaldo() {
         double saldoInt = usuario.getSaldo();
@@ -291,7 +299,6 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JButton btnOperation;
     private javax.swing.JButton btnOption;
     private javax.swing.JTextField fieldOperation;
-    private javax.swing.JTextField fieldOption;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
