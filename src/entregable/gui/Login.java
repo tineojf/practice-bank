@@ -1,6 +1,7 @@
 package entregable.gui;
 
 import entregable.logic.Persona;
+import entregable.logic.Tools;
 import java.awt.Color;
 import java.util.ArrayList;
 
@@ -297,15 +298,11 @@ public class Login extends javax.swing.JFrame {
             fieldApellidoM.setText("");
             fieldPasswordRegister.setText("");
 
-            modalRegister.setText("Usuario registrado exitosamente");
             modalRegister.setForeground(new Color(0, 255, 0));
-            modalRegister.setVisible(true);
-            modalRegister.setEnabled(true);
+            Tools.activarModal(modalRegister, "Usuario registrado exitosamente");
 
         } else {
-            modalRegister.setText("Ingresa un valor correcto");
-            modalRegister.setVisible(true);
-            modalRegister.setEnabled(true);
+            Tools.activarModal(modalRegister, "Ingresa un valor correcto");
         }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
@@ -328,20 +325,17 @@ public class Login extends javax.swing.JFrame {
                 } else {
                     if (contadorLogin == 0) {
                         modalLogin.setText("Limite intentos permitidos (3)");
-                        bloquearBotones();
+                        this.bloquearBotones();
                         return;
                     } else {
                         contadorLogin--;
-                        modalLogin.setText("Te quedan " + contadorLogin + " intentos");
-                        modalLogin.setVisible(true);
-                        modalLogin.setEnabled(true);
+                        String mensaje = "Te quedan " + contadorLogin + " intentos";
+                        Tools.activarModal(modalLogin, mensaje);
                     }
                 }
             }
         } else {
-            modalLogin.setText("Ingresa un valor correcto");
-            modalLogin.setVisible(true);
-            modalLogin.setEnabled(true);
+            Tools.activarModal(modalLogin, "Ingresa un valor correcto");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
