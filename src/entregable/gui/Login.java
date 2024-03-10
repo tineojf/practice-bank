@@ -319,7 +319,7 @@ public class Login extends javax.swing.JFrame {
                     this.dispose();
                     return;
                 } else {
-                    if (contadorLogin == 0) {
+                    if (contadorLogin == 1) {
                         modalLogin.setText("Limite intentos permitidos (3)");
                         this.bloquearBotones();
                         return;
