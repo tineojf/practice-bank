@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="entregable">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/entregable.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
