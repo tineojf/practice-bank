@@ -359,7 +359,7 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setVisible(!btnLogin.isVisible());
     }//GEN-LAST:event_btnLoginTitleActionPerformed
 
-    public void bloquearBotones() {
+    private void bloquearBotones() {
         fieldUser.setEnabled(false);
         fieldPassword.setEnabled(false);
     }

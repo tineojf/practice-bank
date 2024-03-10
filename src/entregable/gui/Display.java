@@ -1,6 +1,7 @@
 package entregable.gui;
 
 import entregable.logic.Persona;
+import entregable.logic.Tools;
 import java.awt.Color;
 
 public class Display extends javax.swing.JFrame {
@@ -12,20 +13,10 @@ public class Display extends javax.swing.JFrame {
 
         initComponents();
 
-        // Load data
+        // Load data name
         lbWelcome.setText("Bienvenido, " + this.usuario.getNombre().toUpperCase());
 
-        // modal hidden
-        modalOption.setVisible(false);
-        modalOption.setEnabled(false);
-        modalOperation.setVisible(false);
-        modalOperation.setEnabled(false);
-
-        // operation hidden
-        lbOperacion.setVisible(false);
-        fieldOperation.setVisible(false);
-        modalOperation.setVisible(false);
-        btnOperation.setVisible(false);
+        this.desactivarModalInput();
     }
 
     /**
@@ -216,9 +207,7 @@ public class Display extends javax.swing.JFrame {
                 this.terminarSesion();
                 break;
             default:
-                modalOption.setText("Ingrese opcion valida");
-                modalOption.setVisible(true);
-                modalOption.setEnabled(true);
+                Tools.activarModal(modalOption, "Ingrese opcion valida");
         }
     }//GEN-LAST:event_btnOptionActionPerformed
 
@@ -233,14 +222,14 @@ public class Display extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnOperationActionPerformed
 
-    public void mostrarSaldo() {
+    private void mostrarSaldo() {
         double saldoInt = usuario.getSaldo();
         String saldo = String.valueOf(saldoInt);
 
         lbSaldo.setText("$ " + saldo);
     }
 
-    public void mostrarSeccionOperacion(String _nameOperation) {
+    private void mostrarSeccionOperacion(String _nameOperation) {
         lbOperacion.setText(_nameOperation.toUpperCase());
         lbOperacion.setVisible(true);
         fieldOperation.setVisible(true);
@@ -248,49 +237,54 @@ public class Display extends javax.swing.JFrame {
         btnOperation.setVisible(true);
     }
 
-    public void ejecutarRetiro() {
+    private void ejecutarRetiro() {
         String ammountTxt = fieldOperation.getText();
         double ammount = Double.parseDouble(ammountTxt);
         fieldOperation.setText("");
 
         if (this.usuario.retiro(ammount)) {
-            modalOperation.setText("Retiro exitoso");
             modalOperation.setForeground(new Color(0, 255, 0));
-            modalOperation.setVisible(true);
-            modalOperation.setEnabled(true);
+            Tools.activarModal(modalOperation, "Retiro exitoso");
             this.mostrarSaldo();
         } else {
-            modalOperation.setText("El retiro falló");
             modalOperation.setForeground(new Color(255, 0, 0));
-            modalOperation.setVisible(true);
-            modalOperation.setEnabled(true);
+            Tools.activarModal(modalOperation, "El retiro falló");
         }
     }
 
-    public void ejecutarDeposito() {
+    private void ejecutarDeposito() {
         String ammountTxt = fieldOperation.getText();
         double ammount = Double.parseDouble(ammountTxt);
         fieldOperation.setText("");
 
         if (this.usuario.deposito(ammount)) {
-            modalOperation.setText("Deposito exitoso");
             modalOperation.setForeground(new Color(0, 255, 0));
-            modalOperation.setVisible(true);
-            modalOperation.setEnabled(true);
+            Tools.activarModal(modalOperation, "Deposito exitoso");
             this.mostrarSaldo();
         } else {
-            modalOperation.setText("El deposito fallo");
             modalOperation.setForeground(new Color(255, 0, 0));
-            modalOperation.setVisible(true);
-            modalOperation.setEnabled(true);
+            Tools.activarModal(modalOperation, "El deposito falló");
         }
     }
 
-    public void terminarSesion() {
+    private void terminarSesion() {
         Login login = new Login();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
         this.dispose();
+    }
+
+    private void desactivarModalInput() {
+        // modal hidden
+        modalOption.setVisible(false);
+        modalOption.setEnabled(false);
+        modalOperation.setVisible(false);
+        modalOperation.setEnabled(false);
+
+        // operation hidden
+        lbOperacion.setVisible(false);
+        fieldOperation.setVisible(false);
+        btnOperation.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
