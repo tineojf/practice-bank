@@ -182,12 +182,7 @@ public class Display extends javax.swing.JFrame {
     private void btnOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperationActionPerformed
         // TODO add your handling code here:
         String nameOperation = lbOperacion.getText();
-
-        if (nameOperation.equals("RETIRO")) {
-            this.ejecutarRetiro();
-        } else {
-            this.ejecutarDeposito();
-        }
+        this.ejecutarOperacion(nameOperation);
     }//GEN-LAST:event_btnOperationActionPerformed
 
     private void mostrarOperaciones() {
@@ -238,34 +233,30 @@ public class Display extends javax.swing.JFrame {
         btnOperation.setVisible(true);
     }
 
-    private void ejecutarRetiro() {
+    private void ejecutarOperacion(String tipo) {
         String ammountTxt = fieldOperation.getText();
         double ammount = Double.parseDouble(ammountTxt);
         fieldOperation.setText("");
 
-        if (this.usuario.retiro(ammount)) {
-            modalOperation.setForeground(new Color(0, 255, 0));
-            Tools.activarModal(modalOperation, "Retiro exitoso");
-            this.mostrarSaldo();
+        if (tipo.equals("RETIRO")) {
+            if (this.usuario.retiro(ammount)) {
+                mostrarResultadoOperacion("Retiro exitoso", new Color(0, 255, 0));
+            } else {
+                mostrarResultadoOperacion("El retiro falló", new Color(255, 0, 0));
+            }
         } else {
-            modalOperation.setForeground(new Color(255, 0, 0));
-            Tools.activarModal(modalOperation, "El retiro falló");
+            if (this.usuario.deposito(ammount)) {
+                mostrarResultadoOperacion("Deposito exitoso", new Color(0, 255, 0));
+            } else {
+                mostrarResultadoOperacion("El Deposito falló", new Color(255, 0, 0));
+            }
         }
     }
 
-    private void ejecutarDeposito() {
-        String ammountTxt = fieldOperation.getText();
-        double ammount = Double.parseDouble(ammountTxt);
-        fieldOperation.setText("");
-
-        if (this.usuario.deposito(ammount)) {
-            modalOperation.setForeground(new Color(0, 255, 0));
-            Tools.activarModal(modalOperation, "Deposito exitoso");
-            this.mostrarSaldo();
-        } else {
-            modalOperation.setForeground(new Color(255, 0, 0));
-            Tools.activarModal(modalOperation, "El deposito falló");
-        }
+    private void mostrarResultadoOperacion(String mensaje, Color color) {
+        modalOperation.setForeground(color);
+        Tools.activarModal(modalOperation, mensaje);
+        this.mostrarSaldo();
     }
 
     private void terminarSesion() {
