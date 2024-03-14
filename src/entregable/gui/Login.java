@@ -346,6 +346,7 @@ public class Login extends javax.swing.JFrame {
         fieldApellidoP.setVisible(!fieldApellidoP.isVisible());
         fieldApellidoM.setVisible(!fieldApellidoM.isVisible());
         fieldPasswordRegister.setVisible(!fieldPasswordRegister.isVisible());
+
         btnSignUp.setVisible(!btnSignUp.isVisible());
     }//GEN-LAST:event_btnRegistroTitleActionPerformed
 
@@ -356,6 +357,7 @@ public class Login extends javax.swing.JFrame {
 
         fieldUser.setVisible(!fieldUser.isVisible());
         fieldPassword.setVisible(!fieldPassword.isVisible());
+
         btnLogin.setVisible(!btnLogin.isVisible());
     }//GEN-LAST:event_btnLoginTitleActionPerformed
 
