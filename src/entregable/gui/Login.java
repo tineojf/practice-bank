@@ -1,5 +1,6 @@
 package entregable.gui;
 
+import entregable.logic.DB;
 import entregable.logic.Persona;
 import entregable.logic.Tools;
 import java.awt.Color;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 public class Login extends javax.swing.JFrame {
 
     private int contadorLogin = 3;
+    private static DB baseDatos;
     private final ArrayList<Persona> listaUsuarios = new ArrayList();
 
     /**
@@ -15,6 +17,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        baseDatos = DB.getInstance();
         this.desactivarInputLabel();
     }
 
@@ -281,7 +284,7 @@ public class Login extends javax.swing.JFrame {
                     fieldPasswordRegister.getText()
             );
 
-            listaUsuarios.add(nuevoUsuario);
+            baseDatos.addUser(nuevoUsuario);
 
             fieldUserRegister.setText("");
             fieldApellidoP.setText("");
@@ -303,27 +306,25 @@ public class Login extends javax.swing.JFrame {
             String username = fieldUser.getText();
             String password = fieldPassword.getText();
 
-            for (Persona usuario : listaUsuarios) {
-                if (usuario.getNombre().equals(username) && usuario.verificarPassword(password)) {
-                    Display display = new Display(usuario);
-                    display.setVisible(true);
-                    display.setLocationRelativeTo(null);
+            Persona userVerified = baseDatos.searchUser(username, password);
 
-                    //cierra ventana Login
-                    this.dispose();
-                    return;
+            if (userVerified instanceof Persona) {
+                Display display = new Display(userVerified);
+                display.setVisible(true);
+                display.setLocationRelativeTo(null);
+
+                this.dispose();
+            } else {
+                if (contadorLogin == 1) {
+                    modalLogin.setText("Limite intentos permitidos (3)");
+                    this.bloquearBotones();
                 } else {
-                    if (contadorLogin == 1) {
-                        modalLogin.setText("Limite intentos permitidos (3)");
-                        this.bloquearBotones();
-                        return;
-                    } else {
-                        contadorLogin--;
-                        String mensaje = "Te quedan " + contadorLogin + " intentos";
-                        Tools.activarModal(modalLogin, mensaje);
-                    }
+                    contadorLogin--;
+                    String mensaje = "Te quedan " + contadorLogin + " intentos";
+                    Tools.activarModal(modalLogin, mensaje);
                 }
             }
+
         } else {
             Tools.activarModal(modalLogin, "Ingresa un valor correcto");
         }

@@ -30,12 +30,12 @@ public class DB {
         this.listaUsuarios.add(persona);
     }
 
-    public boolean searchUser(String username, String password) {
+    public Persona searchUser(String username, String password) {
         for (Persona user : listaUsuarios) {
             if (user.getNombre().equals(username) && user.verificarPassword(password)) {
-                return true;
+                return user;
             }
         }
-        return false;
+        return null;
     }
 }
