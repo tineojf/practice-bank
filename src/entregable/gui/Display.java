@@ -193,7 +193,7 @@ public class Display extends javax.swing.JFrame {
     private void mostrarOperaciones() {
         boolean salir = false;
         do {
-            String opcion = JOptionPane.showInputDialog(null, "1. Consulta\n2. Retiro\n3.Deposito\n4. Salir");
+            String opcion = JOptionPane.showInputDialog(null, "1. Consulta\n2. Retiro\n3. Deposito\n4. Salir");
 
             switch (opcion) {
                 case "1":
