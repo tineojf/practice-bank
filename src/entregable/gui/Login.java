@@ -4,13 +4,11 @@ import entregable.logic.DB;
 import entregable.logic.Persona;
 import entregable.logic.Tools;
 import java.awt.Color;
-import java.util.ArrayList;
 
 public class Login extends javax.swing.JFrame {
 
     private int contadorLogin = 3;
     private static DB baseDatos;
-    private final ArrayList<Persona> listaUsuarios = new ArrayList();
 
     /**
      * Creates new form Display
