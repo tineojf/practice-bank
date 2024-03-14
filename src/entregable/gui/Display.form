@@ -49,9 +49,8 @@
                       <Component id="lbWelcome" alignment="0" min="-2" pref="337" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="modalOption" alignment="0" max="32767" attributes="0"/>
                               <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnOption" max="32767" attributes="0"/>
+                              <Component id="btnOption" pref="136" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" pref="62" max="-2" attributes="0"/>
@@ -117,9 +116,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="85" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="modalOption" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                           <Component id="btnOption" min="-2" pref="35" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -168,14 +165,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="modalOption">
-          <Properties>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Ingrese opcion valida"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="btnOption">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

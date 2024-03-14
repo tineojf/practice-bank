@@ -33,7 +33,6 @@ public class Display extends javax.swing.JFrame {
         lbWelcome = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listOptions = new javax.swing.JList<>();
-        modalOption = new javax.swing.JLabel();
         btnOption = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lbSaldoTitle = new javax.swing.JLabel();
@@ -60,9 +59,6 @@ public class Display extends javax.swing.JFrame {
         });
         listOptions.setFocusable(false);
         jScrollPane1.setViewportView(listOptions);
-
-        modalOption.setForeground(new java.awt.Color(255, 0, 0));
-        modalOption.setText("Ingrese opcion valida");
 
         btnOption.setBackground(new java.awt.Color(212, 255, 0));
         btnOption.setText("Elegir operación");
@@ -107,9 +103,8 @@ public class Display extends javax.swing.JFrame {
                     .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(modalOption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)
-                            .addComponent(btnOption, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnOption, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
                         .addGap(113, 113, 113)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -160,9 +155,7 @@ public class Display extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(modalOption)
-                        .addGap(43, 43, 43)
+                        .addGap(120, 120, 120)
                         .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(185, Short.MAX_VALUE))
         );
@@ -283,15 +276,11 @@ public class Display extends javax.swing.JFrame {
     }
 
     private void desactivarModalInput() {
-        // modal hidden
-        modalOption.setVisible(false);
-        modalOption.setEnabled(false);
-        modalOperation.setVisible(false);
-        modalOperation.setEnabled(false);
-
-        // operation hidden
+        // operation section hidden
         lbOperacion.setVisible(false);
         fieldOperation.setVisible(false);
+        modalOperation.setVisible(false);
+        modalOperation.setEnabled(false);
         btnOperation.setVisible(false);
     }
 
@@ -309,6 +298,5 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JLabel lbWelcome;
     private javax.swing.JList<String> listOptions;
     private javax.swing.JLabel modalOperation;
-    private javax.swing.JLabel modalOption;
     // End of variables declaration//GEN-END:variables
 }
