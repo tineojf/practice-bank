@@ -1,6 +1,6 @@
 package entregable.gui;
 
-import entregable.logic.DB;
+import entregable.persistence.DB;
 import entregable.logic.Persona;
 import entregable.logic.Tools;
 import java.awt.Color;

@@ -1,5 +1,6 @@
-package entregable.logic;
+package entregable.persistence;
 
+import entregable.logic.Persona;
 import java.util.ArrayList;
 
 // patron - singleton
