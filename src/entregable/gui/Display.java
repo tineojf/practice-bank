@@ -20,7 +20,11 @@ public class Display extends javax.swing.JFrame {
         lbNombre.setText(nombre);
         lbWelcome.setText("Bienvenido, " + this.usuario.getNombre().toUpperCase());
 
-        this.desactivarModalInput();
+        // Panel
+        panelOperation.setVisible(false);
+
+        // Modal
+        modalOperation.setVisible(false);
     }
 
     /**
@@ -39,16 +43,18 @@ public class Display extends javax.swing.JFrame {
         containerOptions = new javax.swing.JScrollPane();
         listOptions = new javax.swing.JList<>();
         btnOption = new javax.swing.JButton();
-        panelOperation = new javax.swing.JPanel();
+        panelData = new javax.swing.JPanel();
         lbSaldoTitle = new javax.swing.JLabel();
         lbSaldo = new javax.swing.JLabel();
-        lbOperacion = new javax.swing.JLabel();
-        fieldOperation = new javax.swing.JTextField();
-        modalOperation = new javax.swing.JLabel();
-        btnOperation = new javax.swing.JButton();
         lbTitulo = new javax.swing.JLabel();
         lbNombreTitle = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
+        panelOperation = new javax.swing.JPanel();
+        btnOperation = new javax.swing.JButton();
+        modalOperation = new javax.swing.JLabel();
+        fieldOperation = new javax.swing.JTextField();
+        lbOperacion = new javax.swing.JLabel();
+        lbMontoTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -121,43 +127,30 @@ public class Display extends javax.swing.JFrame {
         panelOptions.setLayout(panelOptionsLayout);
         panelOptionsLayout.setHorizontalGroup(
             panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOptionsLayout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+            .addGroup(panelOptionsLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
                 .addGroup(panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnOption)
                     .addComponent(containerOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
+                .addContainerGap())
         );
         panelOptionsLayout.setVerticalGroup(
             panelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOptionsLayout.createSequentialGroup()
-                .addGap(194, 194, 194)
+                .addGap(186, 186, 186)
                 .addComponent(containerOptions, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(49, 49, 49)
                 .addComponent(btnOption, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        panelOperation.setBackground(new java.awt.Color(250, 241, 240));
+        panelData.setBackground(new java.awt.Color(250, 241, 240));
 
         lbSaldoTitle.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         lbSaldoTitle.setText("Saldo de la cuenta");
 
         lbSaldo.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         lbSaldo.setText("Oculto");
-
-        lbOperacion.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        lbOperacion.setText("Operacion");
-
-        modalOperation.setText("Ingrese opcion valida");
-
-        btnOperation.setBackground(new java.awt.Color(94, 228, 147));
-        btnOperation.setText("Ejecutar operacion");
-        btnOperation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOperationActionPerformed(evt);
-            }
-        });
 
         lbTitulo.setFont(new java.awt.Font("Nimbus Roman", 1, 48)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(43, 6, 30));
@@ -169,58 +162,96 @@ public class Display extends javax.swing.JFrame {
         lbNombre.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         lbNombre.setText("Nombre Apellido");
 
+        javax.swing.GroupLayout panelDataLayout = new javax.swing.GroupLayout(panelData);
+        panelData.setLayout(panelDataLayout);
+        panelDataLayout.setHorizontalGroup(
+            panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDataLayout.createSequentialGroup()
+                .addContainerGap(153, Short.MAX_VALUE)
+                .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDataLayout.createSequentialGroup()
+                        .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbNombreTitle)
+                            .addComponent(lbSaldoTitle))
+                        .addGap(181, 181, 181)
+                        .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lbNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(115, 115, 115))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDataLayout.createSequentialGroup()
+                        .addComponent(lbTitulo)
+                        .addGap(178, 178, 178))))
+        );
+        panelDataLayout.setVerticalGroup(
+            panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDataLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(lbTitulo)
+                .addGap(18, 18, 18)
+                .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNombreTitle)
+                    .addComponent(lbNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbSaldoTitle)
+                    .addComponent(lbSaldo))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+
+        panelOperation.setBackground(new java.awt.Color(250, 241, 240));
+
+        btnOperation.setBackground(new java.awt.Color(94, 228, 147));
+        btnOperation.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        btnOperation.setText("Aceptar");
+        btnOperation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOperationActionPerformed(evt);
+            }
+        });
+
+        modalOperation.setText("Ingrese opcion valida");
+
+        lbOperacion.setFont(new java.awt.Font("Liberation Sans", 1, 36)); // NOI18N
+        lbOperacion.setText("Operación");
+
+        lbMontoTitle.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        lbMontoTitle.setText("Monto");
+
         javax.swing.GroupLayout panelOperationLayout = new javax.swing.GroupLayout(panelOperation);
         panelOperation.setLayout(panelOperationLayout);
         panelOperationLayout.setHorizontalGroup(
             panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelOperationLayout.createSequentialGroup()
-                .addGap(400, 400, 400)
                 .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(modalOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(175, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOperationLayout.createSequentialGroup()
-                .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelOperationLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbTitulo)
-                        .addGap(89, 89, 89))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelOperationLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
+                        .addGap(141, 141, 141)
+                        .addComponent(lbOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelOperationLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(lbMontoTitle)
+                        .addGap(183, 183, 183)
+                        .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelOperationLayout.createSequentialGroup()
+                        .addGap(260, 260, 260)
                         .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbNombreTitle)
-                            .addComponent(lbSaldoTitle))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbSaldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37)))
-                .addGap(78, 78, 78))
+                            .addComponent(btnOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(modalOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelOperationLayout.setVerticalGroup(
             panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOperationLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lbTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNombreTitle)
-                    .addComponent(lbNombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbSaldoTitle)
-                    .addComponent(lbSaldo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
                 .addComponent(lbOperacion)
-                .addGap(32, 32, 32)
-                .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(59, 59, 59)
+                .addGroup(panelOperationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbMontoTitle)
+                    .addComponent(fieldOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addComponent(modalOperation)
-                .addGap(29, 29, 29)
-                .addComponent(btnOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(35, 35, 35)
+                .addComponent(btnOperation, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -231,7 +262,9 @@ public class Display extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelOperation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelOperation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +273,10 @@ public class Display extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelOperation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelOperation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -248,10 +284,7 @@ public class Display extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        Login inicio = new Login();
-        inicio.setVisible(true);
-        inicio.setLocationRelativeTo(null);
-        this.dispose();
+        this.terminarSesion();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnOperationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperationActionPerformed
@@ -307,10 +340,7 @@ public class Display extends javax.swing.JFrame {
 
     private void mostrarSeccionOperacion(String _nameOperation) {
         lbOperacion.setText(_nameOperation.toUpperCase());
-        lbOperacion.setVisible(true);
-        fieldOperation.setVisible(true);
-        modalOperation.setVisible(true);
-        btnOperation.setVisible(true);
+        panelOperation.setVisible(true);
     }
 
     private void ejecutarOperacion(String tipo) {
@@ -346,21 +376,13 @@ public class Display extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void desactivarModalInput() {
-        // operation section hidden
-        lbOperacion.setVisible(false);
-        fieldOperation.setVisible(false);
-        modalOperation.setVisible(false);
-        modalOperation.setEnabled(false);
-        btnOperation.setVisible(false);
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnOperation;
     private javax.swing.JButton btnOption;
     private javax.swing.JScrollPane containerOptions;
     private javax.swing.JTextField fieldOperation;
+    private javax.swing.JLabel lbMontoTitle;
     private javax.swing.JLabel lbNombre;
     private javax.swing.JLabel lbNombreTitle;
     private javax.swing.JLabel lbOperacion;
@@ -370,6 +392,7 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JLabel lbWelcome;
     private javax.swing.JList<String> listOptions;
     private javax.swing.JLabel modalOperation;
+    private javax.swing.JPanel panelData;
     private javax.swing.JPanel panelOperation;
     private javax.swing.JPanel panelOptions;
     private javax.swing.JPanel panelTitle;
