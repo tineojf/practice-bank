@@ -16,7 +16,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         baseDatos = DB.getInstance();
-        this.desactivarInputLabel();
+
+        // Panels
+        panelRegister.setVisible(false);
+        panelLogin.setVisible(false);
     }
 
     /**
@@ -54,7 +57,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        panelLogin.setBackground(new java.awt.Color(220, 249, 220));
+        panelLogin.setBackground(new java.awt.Color(238, 252, 238));
         panelLogin.setPreferredSize(new java.awt.Dimension(1000, 800));
 
         fieldUser.setToolTipText("Username");
@@ -169,12 +172,9 @@ public class Login extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(panelTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLoginTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistroTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTitleLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbBank)
-                .addGap(21, 21, 21))
+                    .addComponent(btnRegistroTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbBank))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         panelRegister.setBackground(new java.awt.Color(250, 241, 240));
@@ -354,57 +354,17 @@ public class Login extends javax.swing.JFrame {
 
     private void btnRegistroTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroTitleActionPerformed
         // TODO add your handling code here:
-        lbUserRegister.setVisible(!lbUserRegister.isVisible());
-        lbApellidoP.setVisible(!lbApellidoP.isVisible());
-        lbApellidoM.setVisible(!lbApellidoM.isVisible());
-        lbPasswordRegister.setVisible(!lbPasswordRegister.isVisible());
-
-        fieldUserRegister.setVisible(!fieldUserRegister.isVisible());
-        fieldApellidoP.setVisible(!fieldApellidoP.isVisible());
-        fieldApellidoM.setVisible(!fieldApellidoM.isVisible());
-        fieldPasswordRegister.setVisible(!fieldPasswordRegister.isVisible());
-
-        btnSignUp.setVisible(!btnSignUp.isVisible());
+        panelRegister.setVisible(!panelRegister.isVisible());
     }//GEN-LAST:event_btnRegistroTitleActionPerformed
 
     private void btnLoginTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginTitleActionPerformed
         // TODO add your handling code here:
-        lbUser.setVisible(!lbUser.isVisible());
-        lbPassword.setVisible(!lbPassword.isVisible());
-
-        fieldUser.setVisible(!fieldUser.isVisible());
-        fieldPassword.setVisible(!fieldPassword.isVisible());
-
-        btnLogin.setVisible(!btnLogin.isVisible());
+        panelLogin.setVisible(!panelLogin.isVisible());
     }//GEN-LAST:event_btnLoginTitleActionPerformed
 
     private void bloquearBotones() {
         fieldUser.setEnabled(false);
         fieldPassword.setEnabled(false);
-    }
-
-    private void desactivarInputLabel() {
-        // Login visibility - false
-        lbUser.setVisible(false);
-        lbPassword.setVisible(false);
-        modalLogin.setVisible(false);
-
-        fieldUser.setVisible(false);
-        fieldPassword.setVisible(false);
-        btnLogin.setVisible(false);
-
-        // Register visibility - false
-        lbUserRegister.setVisible(false);
-        lbApellidoP.setVisible(false);
-        lbApellidoM.setVisible(false);
-        lbPasswordRegister.setVisible(false);
-        modalRegister.setVisible(false);
-
-        fieldUserRegister.setVisible(false);
-        fieldApellidoP.setVisible(false);
-        fieldApellidoM.setVisible(false);
-        fieldPasswordRegister.setVisible(false);
-        btnSignUp.setVisible(false);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
