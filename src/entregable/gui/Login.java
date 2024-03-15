@@ -20,6 +20,10 @@ public class Login extends javax.swing.JFrame {
         // Panels
         panelRegister.setVisible(false);
         panelLogin.setVisible(false);
+        
+        // Modals
+        modalLogin.setVisible(false);
+        modalRegister.setVisible(false);
     }
 
     /**
@@ -72,7 +76,7 @@ public class Login extends javax.swing.JFrame {
         modalLogin.setText("Ingresa un valor correcto");
         modalLogin.setEnabled(false);
 
-        btnLogin.setBackground(new java.awt.Color(204, 66, 78));
+        btnLogin.setBackground(new java.awt.Color(14, 64, 45));
         btnLogin.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Acceder");
@@ -89,20 +93,22 @@ public class Login extends javax.swing.JFrame {
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLoginLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(fieldUser)
-                        .addComponent(lbUser)
-                        .addComponent(lbPassword)
-                        .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelLoginLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(modalLogin))
+                        .addGap(156, 156, 156)
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(fieldUser)
+                            .addComponent(lbUser)
+                            .addComponent(lbPassword)
+                            .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelLoginLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(182, 182, 182)
+                        .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modalLogin)
+                            .addGroup(panelLoginLayout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(163, Short.MAX_VALUE))
         );
         panelLoginLayout.setVerticalGroup(
@@ -116,7 +122,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(lbPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
+                .addGap(105, 105, 105)
                 .addComponent(modalLogin)
                 .addGap(62, 62, 62)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,7 +209,7 @@ public class Login extends javax.swing.JFrame {
         modalRegister.setText("Ingresa un valor correcto");
         modalRegister.setEnabled(false);
 
-        btnSignUp.setBackground(new java.awt.Color(223, 217, 101));
+        btnSignUp.setBackground(new java.awt.Color(165, 1, 4));
         btnSignUp.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(255, 255, 255));
         btnSignUp.setText("Registrar");
@@ -217,56 +223,56 @@ public class Login extends javax.swing.JFrame {
         panelRegister.setLayout(panelRegisterLayout);
         panelRegisterLayout.setHorizontalGroup(
             panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRegisterLayout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisterLayout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(162, 162, 162)
+                .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisterLayout.createSequentialGroup()
                         .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbApellidoM)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisterLayout.createSequentialGroup()
-                                .addComponent(lbApellidoP)
-                                .addGap(79, 79, 79))
-                            .addComponent(lbPasswordRegister))
-                        .addComponent(lbUserRegister)
-                        .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(fieldPasswordRegister)
-                            .addComponent(fieldApellidoM, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldApellidoP, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fieldUserRegister, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelRegisterLayout.createSequentialGroup()
-                        .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(modalRegister))
-                        .addGap(37, 37, 37)))
-                .addGap(145, 145, 145))
+                            .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbApellidoM)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisterLayout.createSequentialGroup()
+                                    .addComponent(lbApellidoP)
+                                    .addGap(79, 79, 79))
+                                .addComponent(lbPasswordRegister))
+                            .addComponent(lbUserRegister)
+                            .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(fieldPasswordRegister)
+                                .addComponent(fieldApellidoM, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(fieldApellidoP, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(fieldUserRegister, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(145, 145, 145))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegisterLayout.createSequentialGroup()
+                        .addComponent(modalRegister)
+                        .addGap(173, 173, 173))))
         );
         panelRegisterLayout.setVerticalGroup(
             panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegisterLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
-                .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRegisterLayout.createSequentialGroup()
-                        .addComponent(lbUserRegister)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbApellidoP)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbApellidoM)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(fieldApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbPasswordRegister)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fieldPasswordRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRegisterLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(modalRegister)))
-                .addGap(57, 57, 57)
+                .addComponent(lbUserRegister)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldUserRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbApellidoP)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbApellidoM)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(fieldApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbPasswordRegister)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(fieldPasswordRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(modalRegister)
+                .addGap(94, 94, 94)
                 .addComponent(btnSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -291,35 +297,6 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        // TODO add your handling code here:
-        if (!fieldUserRegister.getText().isEmpty()
-                && !fieldApellidoP.getText().isEmpty()
-                && !fieldApellidoM.getText().isEmpty()
-                && !fieldPasswordRegister.getText().isEmpty()) {
-            // Ir a frame Display
-            Persona nuevoUsuario = new Persona(
-                    fieldUserRegister.getText(),
-                    fieldApellidoP.getText(),
-                    fieldApellidoM.getText(),
-                    fieldPasswordRegister.getText()
-            );
-
-            baseDatos.addUser(nuevoUsuario);
-
-            fieldUserRegister.setText("");
-            fieldApellidoP.setText("");
-            fieldApellidoM.setText("");
-            fieldPasswordRegister.setText("");
-
-            modalRegister.setForeground(new Color(0, 255, 0));
-            Tools.activarModal(modalRegister, "Usuario registrado exitosamente");
-
-        } else {
-            Tools.activarModal(modalRegister, "Ingresa un valor correcto");
-        }
-    }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
@@ -361,6 +338,35 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         panelLogin.setVisible(!panelLogin.isVisible());
     }//GEN-LAST:event_btnLoginTitleActionPerformed
+
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+        // TODO add your handling code here:
+        if (!fieldUserRegister.getText().isEmpty()
+            && !fieldApellidoP.getText().isEmpty()
+            && !fieldApellidoM.getText().isEmpty()
+            && !fieldPasswordRegister.getText().isEmpty()) {
+            // Ir a frame Display
+            Persona nuevoUsuario = new Persona(
+                fieldUserRegister.getText(),
+                fieldApellidoP.getText(),
+                fieldApellidoM.getText(),
+                fieldPasswordRegister.getText()
+            );
+
+            baseDatos.addUser(nuevoUsuario);
+
+            fieldUserRegister.setText("");
+            fieldApellidoP.setText("");
+            fieldApellidoM.setText("");
+            fieldPasswordRegister.setText("");
+
+            modalRegister.setForeground(new Color(0, 255, 0));
+            Tools.activarModal(modalRegister, "Usuario registrado exitosamente");
+
+        } else {
+            Tools.activarModal(modalRegister, "Ingresa un valor correcto");
+        }
+    }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void bloquearBotones() {
         fieldUser.setEnabled(false);
