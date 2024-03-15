@@ -6,17 +6,20 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Display extends javax.swing.JFrame {
-    
+
     private final Persona usuario;
-    
+
     public Display(Persona _usuario) {
         this.usuario = _usuario;
-        
+
         initComponents();
 
-        // Load data name
+        // Load data from user
+        String nombre = this.usuario.getNombre().toUpperCase()
+                + " " + this.usuario.getApellidoP().toUpperCase();
+        lbNombre.setText(nombre);
         lbWelcome.setText("Bienvenido, " + this.usuario.getNombre().toUpperCase());
-        
+
         this.desactivarModalInput();
     }
 
@@ -261,47 +264,47 @@ public class Display extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.mostrarOperaciones();
     }//GEN-LAST:event_btnOptionActionPerformed
-    
+
     private void mostrarOperaciones() {
         boolean salir = false;
         do {
             String opcion = JOptionPane.showInputDialog(null, "1. Consulta\n2. Retiro\n3. Deposito\n4. Cerrar Sesión");
-            
+
             switch (opcion) {
                 case "1":
                     this.mostrarSaldo();
                     salir = true;
                     break;
-                
+
                 case "2":
                     this.mostrarSeccionOperacion("Retiro");
                     salir = true;
                     break;
-                
+
                 case "3":
                     this.mostrarSeccionOperacion("Deposito");
                     salir = true;
                     break;
-                
+
                 case "4":
                     System.out.println("Sesión cerrada");
                     this.terminarSesion();
                     salir = true;
                     break;
-                
+
                 default:
                     System.out.println("Ingrese opcion correcta");
             }
         } while (!salir);
     }
-    
+
     private void mostrarSaldo() {
         double saldoInt = usuario.getSaldo();
         String saldo = String.valueOf(saldoInt);
-        
+
         lbSaldo.setText("$ " + saldo);
     }
-    
+
     private void mostrarSeccionOperacion(String _nameOperation) {
         lbOperacion.setText(_nameOperation.toUpperCase());
         lbOperacion.setVisible(true);
@@ -309,12 +312,12 @@ public class Display extends javax.swing.JFrame {
         modalOperation.setVisible(true);
         btnOperation.setVisible(true);
     }
-    
+
     private void ejecutarOperacion(String tipo) {
         String ammountTxt = fieldOperation.getText();
         double ammount = Double.parseDouble(ammountTxt);
         fieldOperation.setText("");
-        
+
         if (tipo.equals("RETIRO")) {
             if (this.usuario.retiro(ammount)) {
                 mostrarResultadoOperacion("Retiro exitoso", new Color(0, 255, 0));
@@ -329,20 +332,20 @@ public class Display extends javax.swing.JFrame {
             }
         }
     }
-    
+
     private void mostrarResultadoOperacion(String mensaje, Color color) {
         modalOperation.setForeground(color);
         Tools.activarModal(modalOperation, mensaje);
         this.mostrarSaldo();
     }
-    
+
     private void terminarSesion() {
         Login login = new Login();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
         this.dispose();
     }
-    
+
     private void desactivarModalInput() {
         // operation section hidden
         lbOperacion.setVisible(false);
